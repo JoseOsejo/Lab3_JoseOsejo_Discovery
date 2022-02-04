@@ -11,14 +11,14 @@ import java.util.ArrayList;
  *
  * @author jcoq2
  */
-public class Buses extends Transporte {
+public class Bus extends Transporte {
 
     private ArrayList<Alumno> alumnos;
     private int numeroSillas;
     private int capacidadPersonasPie;
     //el numero de sillas + numeroCapacidadPersonasPie = cantidad de Alumnos
 
-    public Buses(ArrayList<Alumno> alumnos, int numeroSillas, int capacidadPersonasPie, String placa, String color, Transportista transportista, ArrayList<Estacion> estaciones) {
+    public Bus(ArrayList<Alumno> alumnos, int numeroSillas, int capacidadPersonasPie, String placa, String color, Transportista transportista, ArrayList<Estacion> estaciones) {
         super(placa, color, transportista, estaciones);
         this.alumnos = alumnos;
         this.numeroSillas = numeroSillas;
