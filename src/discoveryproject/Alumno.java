@@ -39,6 +39,8 @@ public class Alumno extends Persona
     public void setClases(ArrayList<Clase> clases) {
         this.clases = clases;
     }
+    
+    
 
     @Override
     public String toString() {
