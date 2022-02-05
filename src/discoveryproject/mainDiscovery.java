@@ -133,9 +133,10 @@ public class mainDiscovery {
         int identidad = sc.nextInt();
         System.out.println("Ingrese fecha de Nacimiento dd/mm/yyyy");
         String fecha = sc.next();
-        Date fechaNacimiento = date.parse(fecha);   
+        Date fechaNacimiento = date.parse(fecha);
+        ArrayList<Clase>clasesAlumnos = new ArrayList();
         if(validarId(identidad) == false && validarIdEstudiante(idEstudiante)== false ){
-            alumnos.add(new Alumno(idEstudiante,clases,nombre,identidad,fechaNacimiento));
+            alumnos.add(new Alumno(idEstudiante,clasesAlumnos,nombre,identidad,fechaNacimiento));
         }
     }
     
@@ -158,12 +159,22 @@ public class mainDiscovery {
     }
     
     public static void agregarClaseAlumno() {
-        System.out.println("Ingrese posicion del Alumno");
-        int posAlumno = sc.nextInt();
-        System.out.println("Ingrese posicion de la clase");
-        int posClase = sc.nextInt();
-        alumnos.get(posAlumno).getClases().add(clases.get(posClase));
         
+        System.out.println("Ingrese al estudiante");
+        String alumnoNombre = sc.next();
+        System.out.println("Ingrese nombre de la clase");
+        String nombreClase = sc.next();
+        for (Alumno alumno : alumnos) {
+            for (Clase clase : clases) {
+                if (alumno.getNombre().equalsIgnoreCase(alumnoNombre) && clase.getNombre().equalsIgnoreCase(nombreClase)) {
+                    int pos = alumnos.indexOf(alumnoNombre);
+                    int posClase = clases.indexOf(nombreClase);
+                    Clase c = clases.get(posClase);
+                    alumnos.get(pos).getClases().add(c);
+                }
+            }
+        }
+
     }
     public static void crearTransporte(){
         System.out.println("Ingrese Placa");
